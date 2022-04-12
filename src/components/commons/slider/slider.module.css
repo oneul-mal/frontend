@@ -1,0 +1,25 @@
+.container {
+  overflow: hidden;
+  position: relative;
+}
+
+.slider {
+  display: flex;
+  transition: all 0.5s ease-in-out;
+  list-style: none;
+  padding: 0;
+}
+
+.prevBtn,
+.nextBtn {
+  all: unset;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+}
+.prevBtn {
+  left: 1rem;
+}
+.nextBtn {
+  right: 1rem;
+}

@@ -11,7 +11,7 @@ const initialState = {
   userPassword: "",
 };
 
-const auth = (state = initialState, action) => {
+function auth(state = initialState, action) {
   switch (action.type) {
     case LOGIN:
       return {
@@ -25,7 +25,9 @@ const auth = (state = initialState, action) => {
       return {
         ...state,
       };
+    default:
+      return state;
   }
-};
+}
 
 export default auth;
