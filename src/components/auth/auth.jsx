@@ -7,11 +7,15 @@ const textMap = {
 };
 
 const Auth = ({ mode, onLogin }) => {
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
 
     console.log(e.target.userId.value);
     console.log(e.target.userPassword.value);
+
+    const data = await fetch("/login").then((r) => r.json());
+
+    console.log(data);
   };
 
   return (
