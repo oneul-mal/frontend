@@ -18,7 +18,7 @@ const mockPosts = (function makePostData() {
 })();
 
 export const handler = [
-  rest.get("/login", (req, res, ctx) => {
+  rest.get("/contents", (req, res, ctx) => {
     console.log(req);
     return res(ctx.status(200), ctx.json(mockPosts));
   }),

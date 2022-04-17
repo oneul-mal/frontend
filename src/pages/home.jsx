@@ -1,5 +1,6 @@
 import React from "react";
 import Slider from "../components/commons/slider/slider";
+import ContentsContainer from "../containers/contents_container";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
           <img src='https://via.placeholder.com/1080x300' alt='slide_img' />
         </div>
       </Slider>
+      <ContentsContainer />
     </>
   );
 };
