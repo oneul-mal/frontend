@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 const logoPath = `${process.env.PUBLIC_URL}/assets/onuel_logo.svg`;
 
 const Header = ({ user }) => {
-  console.log("header render");
   return (
     <header className={styles.header}>
       <Link to='/'>

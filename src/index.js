@@ -1,22 +1,29 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./app";
 import { BrowserRouter } from "react-router-dom";
-import { createStore } from "redux";
-import rootReducer from "./modules";
+import { applyMiddleware, createStore } from "redux";
+import rootReducer, { rootSaga } from "./modules";
 import { Provider } from "react-redux";
+import createSagaMiddleware from "@redux-saga/core";
+import { worker } from "./mocks/browser";
 
-const store = createStore(rootReducer);
-console.log(store.getState());
+// MSW
+const mw = worker;
+mw.start();
 
-ReactDOM.render(
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(rootSaga);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </Provider>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );

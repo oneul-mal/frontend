@@ -10,12 +10,13 @@ const Auth = ({ mode, onLogin }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(e.target.userId.value);
-    console.log(e.target.userPassword.value);
+    const [userId, userPassword] = [
+      e.target.userId.value,
+      e.target.userPassword.value,
+    ];
 
-    const data = await fetch("/login").then((r) => r.json());
-
-    console.log(data);
+    onLogin({ userId, userPassword });
+    e.target.reset();
   };
 
   return (
