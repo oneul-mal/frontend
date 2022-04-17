@@ -4,10 +4,6 @@ import Home from "./pages/home";
 import Login from "./pages/login";
 import Register from "./pages/register";
 import HeaderContainer from "./containers/header_container";
-import { worker } from "./mocks/browser";
-
-const mw = worker;
-mw.start();
 
 function App() {
   return (
