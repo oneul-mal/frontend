@@ -7,12 +7,11 @@ const ContentsContainer = () => {
   const contents = useSelector((state) => state.contents.contents);
   const dispatch = useDispatch();
 
-  console.log(contents);
   useEffect(() => {
     dispatch(getContents());
   }, [dispatch]);
 
-  return <Contents />;
+  return <Contents contents={contents} />;
 };
 
 export default ContentsContainer;

@@ -8,13 +8,17 @@ import rootReducer, { rootSaga } from "./modules";
 import { Provider } from "react-redux";
 import createSagaMiddleware from "@redux-saga/core";
 import { worker } from "./mocks/browser";
+import { composeWithDevTools } from "redux-devtools-extension";
 
 // MSW
 const mw = worker;
 mw.start();
 
 const sagaMiddleware = createSagaMiddleware();
-const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(sagaMiddleware))
+);
 sagaMiddleware.run(rootSaga);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

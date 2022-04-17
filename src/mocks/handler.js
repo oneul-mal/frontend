@@ -10,7 +10,7 @@ const mockPosts = (function makePostData() {
       writer: `writer${i}`,
       content: `${i} Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem libero tempore excepturi. Inventore, dolor aut modi, velit repellat quos ad minima similique, voluptatum deleniti ipsam. Blanditiis est eum similique deserunt?`,
       sympathies: parseInt(Math.random() * (i + 5)),
-      coments: parseInt(Math.random() * (i + 1)),
+      comments: parseInt(Math.random() * (i + 1)),
     });
   }
 
@@ -19,7 +19,6 @@ const mockPosts = (function makePostData() {
 
 export const handler = [
   rest.get("/contents", (req, res, ctx) => {
-    console.log(req);
     return res(ctx.status(200), ctx.json(mockPosts));
   }),
   rest.post("/login", (req, res, ctx) => {
