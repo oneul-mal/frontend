@@ -24,4 +24,7 @@ export const handler = [
   rest.post("/login", (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(req.body));
   }),
+  rest.post("/register", (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(req.body));
+  }),
 ];

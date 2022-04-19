@@ -1,17 +1,43 @@
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .item {
-  margin-right: 0.25rem;
+  margin: 1rem 0.5rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  padding: 1rem;
+  border-radius: 0.25rem;
 }
 
-.meta {
+.item__title {
+  margin: 0;
+}
+
+.meta__container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.meta {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.meta > * {
+  margin-right: 0.5rem;
+}
+
+.content_container {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
