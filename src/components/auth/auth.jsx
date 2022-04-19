@@ -6,21 +6,31 @@ const textMap = {
   register: "회원가입",
 };
 
-const Auth = ({ mode, onLogin }) => {
-  const onSubmit = async (e) => {
+const Auth = ({ mode, onAuthSubmit }) => {
+  const onSubmit = (e) => {
     e.preventDefault();
 
     const [userId, userPassword] = [
       e.target.userId.value,
       e.target.userPassword.value,
     ];
+    if (mode === "register") {
+      const userPasswordConfirm = e.target.userPasswordConfirm.value;
 
-    onLogin({ userId, userPassword });
+      if (userPassword !== userPasswordConfirm) {
+        alert("비밀번호를 값 다름ㅠ");
+        e.target.reset();
+
+        return;
+      }
+    }
+
+    onAuthSubmit({ userId, userPassword });
     e.target.reset();
   };
 
   return (
-    <form className={styles.form} onSubmit={(e) => onSubmit(e)}>
+    <form className={styles.form} onSubmit={onSubmit}>
       <input
         type='text'
         placeholder='아이디 입력'

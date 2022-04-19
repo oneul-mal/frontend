@@ -16,8 +16,6 @@ export const logout = () => ({ type: LOGOUT });
 export const register = (userInfo) => ({ type: REGISTER, userInfo });
 
 function* loginSaga(action) {
-  console.log(action);
-
   try {
     const result = yield call(api.login, action.userInfo);
 
@@ -30,8 +28,22 @@ function* loginSaga(action) {
   }
 }
 
+function* registerSaga(action) {
+  try {
+    const result = yield call(api.register, action.userInfo);
+
+    yield put({
+      type: REGISTER_SUCCESS,
+      payload: result,
+    });
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 export function* authSaga() {
   yield takeLatest(LOGIN, loginSaga);
+  yield takeLatest(REGISTER, registerSaga);
 }
 
 const initialState = {
@@ -49,9 +61,10 @@ function auth(state = initialState, action) {
       return {
         ...state,
       };
-    case REGISTER:
+    case REGISTER_SUCCESS:
       return {
         ...state,
+        userId: action.payload.userId,
       };
     default:
       return state;

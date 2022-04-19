@@ -2,19 +2,18 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Auth from "../components/auth/auth";
-import { login } from "../modules/auth";
+import { login, register } from "../modules/auth";
 
 const AuthContainer = ({ mode }) => {
-  const userId = useSelector((state) => state.auth.userId);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const onLogin = (userInfo) => {
-    dispatch(login(userInfo));
+  const onAuthSubmit = (userInfo) => {
+    mode === "login" ? dispatch(login(userInfo)) : dispatch(register(userInfo));
 
-    if (userId) navigate("/");
+    navigate("/");
   };
 
-  return <Auth mode={mode} onLogin={onLogin} />;
+  return <Auth mode={mode} onAuthSubmit={onAuthSubmit} />;
 };
 
 export default AuthContainer;
