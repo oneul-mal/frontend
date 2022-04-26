@@ -6,17 +6,20 @@ import { FaRegCommentDots } from "react-icons/fa";
 const Item = ({ content }) => {
   return (
     <li className={styles.item}>
-      <h3 className={styles.item__title}>{content.title}</h3>
-      <div className={styles.meta__container}>
-        <div className={styles.meta}>
+      <div className={styles.meta}>
+        <h3 className={styles.item__title}>{content.title}</h3>
+        <div className={styles.item__info}>
           <BsSuitHeart />
           <span>{content.sympathies}</span>
           <FaRegCommentDots />
           <span>{content.comments}</span>
+          <span className={styles.writer}>{content.writer}</span>
         </div>
-        <span className={styles.writer}>{content.writer}</span>
       </div>
-      <div className={styles.content_container}>{content.content}</div>
+
+      <div className={styles.content__container}>
+        <p>{content.content}</p>
+      </div>
     </li>
   );
 };
