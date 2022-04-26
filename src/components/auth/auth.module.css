@@ -14,8 +14,7 @@
   font-weight: bold;
 }
 
-.authInput,
-.authBtn {
+.authInput {
   all: unset;
   width: 80%;
   max-width: 480px;
@@ -27,13 +26,4 @@
   border: 1px solid #d6d6d6;
   border-radius: 0.25rem;
   margin-bottom: 1rem;
-}
-
-.authBtn {
-  border: 1px solid #d6d6d6;
-  background-color: #009000;
-  padding: 0.5rem;
-  text-align: center;
-  color: white;
-  cursor: pointer;
 }

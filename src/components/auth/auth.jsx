@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../commons/button/button";
 import styles from "./auth.module.css";
 
 const textMap = {
@@ -53,9 +54,7 @@ const Auth = ({ mode, onAuthSubmit }) => {
           className={styles.authInput}
         />
       )}
-      <button type='submit' className={styles.authBtn}>
-        {textMap[mode]}
-      </button>
+      <Button type='submit'>{textMap[mode]}</Button>
     </form>
   );
 };
